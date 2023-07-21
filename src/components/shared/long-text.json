@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_shared_long_texts",
+  "info": {
+    "displayName": "Long Text"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    }
+  }
+}
