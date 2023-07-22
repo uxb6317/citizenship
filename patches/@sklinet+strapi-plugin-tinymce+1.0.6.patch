@@ -1,0 +1,43 @@
+diff --git a/node_modules/@sklinet/strapi-plugin-tinymce/admin/src/components/Editor/index.js b/node_modules/@sklinet/strapi-plugin-tinymce/admin/src/components/Editor/index.js
+index c9af5d3..73495dd 100644
+--- a/node_modules/@sklinet/strapi-plugin-tinymce/admin/src/components/Editor/index.js
++++ b/node_modules/@sklinet/strapi-plugin-tinymce/admin/src/components/Editor/index.js
+@@ -44,6 +44,26 @@ const TinyEditor = ({ onChange, name, value }) => {
+                 }}
+                 outputFormat={pluginConfig?.outputFormat || "html"}
+                 init={{
++                    selector: 'textarea', 
++                    setup: (editor) => {
++                        editor.ui.registry.addButton('primaryBtn', {
++                            text: 'Primary Btn',
++                            onAction: (_) => editor.insertContent(`<button style="display: inline-block;
++                            padding: 12px 24px;
++                            background-color: #2196F3; 
++                            color: white;
++                            border: none;
++                            border-radius: 4px;
++                            font-size: 16px;
++                            text-align: center;
++                            text-decoration: none;
++                            cursor: pointer;
++                            transition: background-color 0.2s ease-in-out;"
++             >
++               Change Text
++             </button>`)
++                          });
++                    },
+                     ...pluginConfig?.editorConfig,
+                     images_upload_handler: async (blobInfo) => {
+                       const formData = new FormData();
+diff --git a/node_modules/@sklinet/strapi-plugin-tinymce/server/services/config.js b/node_modules/@sklinet/strapi-plugin-tinymce/server/services/config.js
+index 70e6929..42b47a9 100644
+--- a/node_modules/@sklinet/strapi-plugin-tinymce/server/services/config.js
++++ b/node_modules/@sklinet/strapi-plugin-tinymce/server/services/config.js
+@@ -3,6 +3,7 @@
+ module.exports = ({ strapi }) => {
+     return {
+         getConfig(key = "editor") {
++            console.log( strapi.plugin("tinymce").config(key))
+             return strapi.plugin("tinymce").config(key) ?? {};
+         },
+     };

@@ -7,7 +7,6 @@ module.exports = ({ env }) => ({
         outputFormat: "html",
         editorConfig: {
           height: 500,
-          menubar: false,
           extended_valid_elements: "span, img, small",
           forced_root_block: "",
           convert_urls: false,
@@ -20,7 +19,7 @@ module.exports = ({ env }) => ({
             "undo redo | styles | bold italic forecolor backcolor | \
                       alignleft aligncenter alignright alignjustify | \
                       media table emoticons visualblocks code|\
-                      nonbreaking bullist numlist outdent indent | removeformat | help",
+                      nonbreaking bullist numlist outdent indent | removeformat | help | primaryBtn",
           style_formats: [
             {
               title: "Headings",
