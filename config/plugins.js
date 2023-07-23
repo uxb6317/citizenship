@@ -6,6 +6,47 @@ module.exports = ({ env }) => ({
       editor: {
         outputFormat: "html",
         editorConfig: {
+          selector: "textarea", // change this value according to your HTML
+          content_style: `
+          .callout {
+            border-left: 5px solid red;
+            padding-left: 2rem;
+            margin-left: 1rem;
+          }
+          .callout a {
+            font-weight: bold;
+            font-size: 2rem;
+            margin: 0;
+          }
+          .callout p {
+            margin: 0;
+          }
+          .btn {
+            background-color: none;
+            border: none;
+            border-radius: 0;
+          }
+          .btn-primary {
+            background-color: white;
+            border: 1px solid black;
+          }
+          .btn-secondary {
+            background-color: black;
+            color: white;
+            border: 1px solid black;
+          }
+          tbody tr:first-of-type {
+            background-color: black;
+            color: white;
+            font-weight: bold;
+          }
+          tbody tr:nth-of-type(2n) {
+            background-color: #f2f2f2;
+          }
+          td {
+            border: none;
+          }
+          `,
           height: 500,
           extended_valid_elements: "span, img, small",
           forced_root_block: "",
@@ -16,10 +57,10 @@ module.exports = ({ env }) => ({
                       searchreplace visualblocks code fullscreen table emoticons nonbreaking \
                       insertdatetime media table code help wordcount",
           toolbar:
-            "undo redo | styles | bold italic forecolor backcolor | \
+            "undo redo | styles | ndaComponents | bold italic forecolor backcolor | \
                       alignleft aligncenter alignright alignjustify | \
                       media table emoticons visualblocks code|\
-                      nonbreaking bullist numlist outdent indent | removeformat | help | primaryBtn",
+                      nonbreaking bullist numlist outdent indent | removeformat | help",
           style_formats: [
             {
               title: "Headings",
